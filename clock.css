@@ -1,0 +1,120 @@
+*, *::after, *::before {
+    box-sizing: border-box;
+    font-family: Courier New, Courier;
+    
+}
+
+/* This applies to both digital and analog clocks */
+
+body {
+    background: linear-gradient(to right, hsl(313, 100%, 50%), hsl(194, 100%, 44%));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* Below here is all analog clock */
+
+.analogClock {
+    width: 300px;
+    height: 300px;
+    background-color: rgba(255, 255, 255, .6);
+    border-radius: 50%;
+    border: 3px solid black;
+    position: relative;
+}
+
+.analogClock .number {
+    --rotation: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transform: rotate(var(--rotation));
+    font-size:  1.5rem;
+    font-weight: bold;
+}
+
+
+.analogClock .number1 {--rotation: 30deg; }
+.analogClock .number2 {--rotation: 60deg; }
+.analogClock .number3 {--rotation: 90deg; }
+.analogClock .number4 {--rotation: 120deg; }
+.analogClock .number5 {--rotation: 150deg; }
+.analogClock .number6 {--rotation: 180deg; }
+.analogClock .number7 {--rotation: 210deg; }
+.analogClock .number8 {--rotation: 240deg; }
+.analogClock .number9 {--rotation: 270deg; }
+.analogClock .number10 {--rotation: 300deg; }
+.analogClock .number11 {--rotation: 330deg; }
+
+.analogClock .hand {
+    --rotation: 0;
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    /* width: 10px;
+    height: 50%; */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    /* background-color: black; */
+    transform-origin: bottom;
+    z-index: 3;
+    transform: translateX(-50%) rotate(calc(var(--rotation)* 1deg));
+}
+
+.analogClock::after {
+    content: '';
+    position: absolute;
+    background-color: black;
+    z-index: 5;
+    width: 15px;
+    height: 15px;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.analogClock .hand.second {
+    width: 3px;
+    height: 45%;
+    background-color: red;
+}
+
+.analogClock .hand.minute {
+    width: 5px;
+    height: 39%;
+    background-color: black;
+}
+
+.analogClock .hand.hour {
+    width: 10px;
+    height: 30%;
+    background-color: black;
+}
+
+/* Below here is all digital clock */
+
+.digitalClock {
+    background: #333333;
+    width: 200px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.digitalClock .clock-time, .digitalClock .ampm {
+    font-family: sans-serif;
+    font-size: 30px;
+    color: white;
+}
+
+.digitalClock .clock-time {
+    font-size: 48px;
+}
